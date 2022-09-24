@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 引入Vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!-- 容器 -->
+<div id="root">
+  <h2>当前的n值是{{n}}</h2>
+  <button @click="n++">点我n+1</button>
+<!-- 使用v-show做条件渲染 -->
+<!--  <h2 v-show="false">欢迎来到{{name}}</h2>-->
+<!--  <h2 v-show="1 === 1">欢迎来到{{name}}</h2>-->
+
+<!-- 使用v-if做条件渲染 -->
+<!--  <h2 v-show="false">欢迎来到{{name}}</h2>-->
+<!--  <h2 v-show="1 === 1">欢迎来到{{name}}</h2>-->
+<div v-show="n === 1">Angular</div>
+<div v-show="n === 2">React</div>
+<div v-show="n === 3">Vue</div>
+</div>
+
+<script type="text/javascript">
+  Vue.config.productionTip = false; //阻止vue启动时生成提示
+
+  new Vue({
+    el:'#root',
+    data:{
+      name:'浙江',
+      n:0
+    }
+  })
+</script>
+</body>
+</html>
