@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 引入Vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!-- 容器 -->
+<div id="root">
+  <h2>学习名称{{name}}</h2>
+  <h2>学习地址{{address}}</h2>
+</div>
+
+  <script type="text/javascript">
+    Vue.config.productionTip = false; //阻止vue启动时生成提示
+    const vm = new Vue({
+      el:'#root',
+      data:{
+        name:'TyLoo',
+        address:'河南洛阳',
+        player:{
+          name: 'captainMo',
+          age: {
+            rAge:18,
+            sAge:35
+          }
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
