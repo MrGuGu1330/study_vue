@@ -49,6 +49,8 @@
   <button @click="addHobby">添加一个爱好</button>
   <br>
   <button @click="updateHobby">修改一个爱好为：开车</button>
+  <br>
+  <button @click="removeHobby">过滤掉爱好中的抽烟</button>
 
   <h3>姓名：{{student.name}}</h3>
   <h3>年龄：{{student.age}}</h3>
@@ -100,6 +102,11 @@
         // this.student.hobby.splice(0,1,'开车')
         // Vue.set(this.student.hobby,0,'开车')
         this.$set(this.student.hobby,0,'开车')
+      },
+      removeHobby(){
+        this.student.hobby = this.student.hobby.filter((h)=>{
+          return h !== '抽烟'
+        })
       }
     }
   })
