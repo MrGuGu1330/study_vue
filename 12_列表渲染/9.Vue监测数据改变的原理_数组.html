@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 引入Vue -->
+  <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<!-- 容器 -->
+<div id="root">
+  <h1>学校信息</h1>
+  <h2>学习名称{{school.name}}</h2>
+  <h2>学习地址{{school.address}}</h2>
+  <h2>校长是：{{school.leader}}</h2>
+  <hr>
+  <h1>玩家信息</h1>
+  <button @click="addSex">添加一个性别属性</button>
+  <h2>玩家姓名：{{player.name}}</h2>
+  <h2>玩家年龄：真实：{{player.age.rAge}},对外{{player.age.sAge}}</h2>
+  <h2 v-if="player.sex">性别：{{player.sex}}</h2>
+  <h2>爱好</h2>
+  <ul>
+    <li v-for="(h,index) in player.hobby" :key="index">{{h}}</li>
+  </ul>
+  <h2>朋友们</h2>
+  <ul>
+    <li v-for="(f,index) in player.friends" :key="index">
+      {{f.name}}---{{f.age}}
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  Vue.config.productionTip = false; //阻止vue启动时生成提示
+  const vm = new Vue({
+    el:'#root',
+    data:{
+      school:{
+        name:'TyLoo',
+        address:'河南洛阳'
+      },
+      player:{
+        name: 'captainMo',
+        age: {
+          rAge:18,
+          sAge:35
+        },
+        hobby:['抽烟','喝酒','烫头'],
+        friends:[
+          {name:'jerry',age:'25'},
+          {name:'tom',age:'27'},
+        ]
+      }
+    },
+    methods:{
+      addSex(){
+        // Vue.set(this.player,'sex','男')
+        this.$set(this.player,'sex','男')
+      }
+    }
+  })
+
+</script>
+</body>
+</html>
